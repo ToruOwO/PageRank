@@ -27,14 +27,14 @@ int main(){
 	//match the "name" and index of pages
 
 
-	ifstream data;
-	data.open("medium_data");
-	if(!data.is_open()) {
-		cout << "Error loading data." << endl;
-		exit(1);
-	}
+//	ifstream data;
+//	data.open("medium_data");
+//	if(!data.is_open()) {
+//		cout << "Error loading data." << endl;
+//		exit(1);
+//	}
 
-	data >> n;
+	cin >> n;
 
 	for(int i = 0; i < n; i++){
 		string name;
@@ -44,11 +44,11 @@ int main(){
 		curr[i] = 100; //initialize every page with a weight of 100
 	}
 
-	data >> k;
+	cin >> k;
 
 	for(int i = 0; i < k; i++){
 		string a, b;
-		data >> a >> b;
+		cin >> a >> b;
 		int id_a = names[a], id_b = names[b];
 
 		if(id_a == id_b) continue; //links from a page to itself is ignored
@@ -59,7 +59,7 @@ int main(){
 		}//multiple outbound links from a page to another page is ignored
 	}
 
-	data.close();
+//	data.close();
 
 	for(int i = 0; i < LOOP; i++){ //loop of PageRank calculation
 
